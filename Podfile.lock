@@ -1,0 +1,20 @@
+PODS:
+  - Realm (3.3.0):
+    - Realm/Headers (= 3.3.0)
+  - Realm/Headers (3.3.0)
+  - RealmSwift (3.3.0):
+    - Realm (= 3.3.0)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - RealmSwift
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Realm: 7d74ad6c5020432f58fe5e1df90bb6d97b2c7fef
+  RealmSwift: b2fa31a09c22e246026766557405505eeaad2b01
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: fd3de3098d8f320907b023c6b9e7578a142db991
+
+COCOAPODS: 1.4.0
