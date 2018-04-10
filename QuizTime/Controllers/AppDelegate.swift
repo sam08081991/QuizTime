@@ -15,12 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        setDefaultRealmForUser(username: "QuizTime")
         do {
             let realm = try Realm()
         }catch{
             print("Error: \(error)")
         }
         return true
+    }
+    
+    func setDefaultRealmForUser(username: String){
+        var config = Realm.Configuration()
+        config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(username).realm")
+        Realm.Configuration.defaultConfiguration = config
+        print(config)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
