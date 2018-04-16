@@ -11,6 +11,7 @@ import RealmSwift
 class DKViewController: UIViewController {
     let realm = try! Realm()
     var examinees: Results<Examinee>?
+    let thisNewUser = Examinee()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,34 @@ class DKViewController: UIViewController {
     }
     
     @IBAction func dkButtonPressed(_ sender: Any) {
-        let thisNewUser = Examinee()
         thisNewUser.username = username.text!
         thisNewUser.password = password.text!
         thisNewUser.UID = (String)((examinees?.count)! + 1)
+        var available = examinees?.filter("username = %@", thisNewUser.username)
+        
+        //var count = available?.count
+        for examinee in available! {
+            let userID = examinee.UID
+            let userPW = examinee.password
+            let userName = examinee.username
+            let subjects = examinee.subjects
+            print(userID, userPW, userName, subjects)
+        }
+//        if count! > 0 {
+//            print("This username is unavailable.")
+//
+//        }
+//        else {
+//            self.addUser(newUser: thisNewUser)
+//        }
+//        while count! > 0 {
+//
+//        }
         self.addUser(newUser: thisNewUser)
+        
+        //print(available?.sorted(byKeyPath: "UID", ascending: false))
+        
+        
     }
         
     func addUser(newUser: Examinee){
@@ -42,7 +66,6 @@ class DKViewController: UIViewController {
             print("Error addUser: \(error)")
         }
     }
-    
     
     
 }
