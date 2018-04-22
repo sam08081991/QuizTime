@@ -300,10 +300,10 @@
                                 </state>
                                 <connections>
                                     <action selector="dkButtonPressed:" destination="4nB-xT-EG0" eventType="touchUpInside" id="fz8-b7-bs4"/>
-                                    <segue destination="v9o-wV-BTW" kind="show" id="lIg-5G-Jmt"/>
+                                    <segue destination="v9o-wV-BTW" kind="show" identifier="gotoMenu" id="kDe-JF-GP9"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-k2-9lx">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-k2-9lx">
                                 <rect key="frame" x="37" y="310" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text" base64-UTF8="YES">
@@ -328,7 +328,7 @@ CA
                                     <segue destination="BYZ-38-t0r" kind="show" id="Txz-Lp-LRm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0co-ct-Jlp">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0co-ct-Jlp">
                                 <rect key="frame" x="37" y="348" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.67074476520000004" green="0.67074476520000004" blue="0.67074476520000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -357,7 +357,7 @@ CA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Q6p-uI-1rw"/>
-        <segue reference="zy2-R5-Zl7"/>
-        <segue reference="JQl-8U-XCB"/>
+        <segue reference="kDe-JF-GP9"/>
+        <segue reference="Txz-Lp-LRm"/>
     </inferredMetricsTieBreakers>
 </document>

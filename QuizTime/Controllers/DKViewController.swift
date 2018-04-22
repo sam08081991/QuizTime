@@ -26,37 +26,45 @@ class DKViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func dkButtonPressed(_ sender: Any) {
+    @IBAction func dkButtonPressed(_ sender: AnyObject) {
         thisNewUser.username = username.text!
         thisNewUser.password = password.text!
         thisNewUser.UID = (String)((examinees?.count)! + 1)
         var available = examinees?.filter("username = %@", thisNewUser.username)
-        
-        //var count = available?.count
-        for examinee in available! {
-            let userID = examinee.UID
-            let userPW = examinee.password
-            let userName = examinee.username
-            let subjects = examinee.subjects
-            print(userID, userPW, userName, subjects)
+        //var array1 = [Examinee]()
+        var count = available?.count
+//        for examinee in available! {
+//            let userID = examinee.UID
+//            let userPW = examinee.password
+//            let userName = examinee.username
+//            let subjects = examinee.subjects
+//            print(userID, userPW, userName, subjects)
+//            array1.append(examinee)
+//        }
+        if username.text!.isEmpty == true || password.text!.isEmpty == true {
+            alertMessage(message: "Those fields must be filled")
+            username.text!.removeAll()
+            password.text!.removeAll()
+            return
         }
-//        if count! > 0 {
-//            print("This username is unavailable.")
-//
-//        }
-//        else {
-//            self.addUser(newUser: thisNewUser)
-//        }
-//        while count! > 0 {
-//
-//        }
-        self.addUser(newUser: thisNewUser)
-        
-        //print(available?.sorted(byKeyPath: "UID", ascending: false))
-        
-        
+        if count! > 0 {
+            alertMessage(message: "This username is unavailable")
+            count = 0
+            username.text!.removeAll()
+            password.text!.removeAll()
+            return
+        }
+        addUser(newUser: thisNewUser)
+        print(thisNewUser)
     }
-        
+//PUSH AN ALERT
+    func alertMessage(message: String){
+        let alert = UIAlertController(title: "Uh oh!" , message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+//ADD USER
     func addUser(newUser: Examinee){
         do {
             try realm.write {

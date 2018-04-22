@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(username).realm")
         Realm.Configuration.defaultConfiguration = config
+        print(config)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
