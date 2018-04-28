@@ -46,16 +46,17 @@ class DKViewController: UIViewController {
             username.text!.removeAll()
             password.text!.removeAll()
             return
+        }else{
+            if count! > 0 {
+                alertMessage(message: "This username is unavailable")
+                username.text!.removeAll()
+                password.text!.removeAll()
+                return
+            }else{
+                addUser(newUser: thisNewUser)
+                print(thisNewUser)
+            }
         }
-        if count! > 0 {
-            alertMessage(message: "This username is unavailable")
-            count = 0
-            username.text!.removeAll()
-            password.text!.removeAll()
-            return
-        }
-        addUser(newUser: thisNewUser)
-        print(thisNewUser)
     }
 //PUSH AN ALERT
     func alertMessage(message: String){
