@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 class Answer: Object {
+    @objc dynamic var ansID: String = ""
     @objc dynamic var answerContent: String = ""
     @objc dynamic var correct: Bool = false
     @objc dynamic var ansOfQuestion: Question?    

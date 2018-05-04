@@ -31,14 +31,6 @@ class DKViewController: UIViewController {
         let available = examinees?.filter("username = %@", thisNewUser.username)
         //var array1 = [Examinee]()
         let count = available?.count
-//        for examinee in available! {
-//            let userID = examinee.UID
-//            let userPW = examinee.password
-//            let userName = examinee.username
-//            let subjects = examinee.subjects
-//            print(userID, userPW, userName, subjects)
-//            array1.append(examinee)
-//        }
         if username.text!.isEmpty == true || password.text!.isEmpty == true {
             alertMessage(message: "Those fields must be filled")
             self.username.text!.removeAll()

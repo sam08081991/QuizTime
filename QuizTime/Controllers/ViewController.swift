@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import RealmSwift
 class ViewController: UIViewController {
-//    let realm = try! Realm()
-//    let hinhhoc = Subject(value:["subID":"HH", "subName": "Hinh Hoc"])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,6 +17,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
 
     }
-
 }
 

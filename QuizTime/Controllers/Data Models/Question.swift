@@ -12,5 +12,5 @@ class Question: Object {
     @objc dynamic var quesID: String = ""
     @objc dynamic var quesContent: String = ""
     @objc dynamic var quesOfSub : Subject?
-    var answers = List<Answer>()
+    let answers = List<Answer>()
 }

@@ -12,6 +12,7 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setDefaultRealmForUser(username: "QuizTime")
         do {
@@ -27,14 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        addSubject(newSubject:tienganh)
 //        addSubject(newSubject:daiso)
         //ADDING QUESTIONS TO DATABASE
-//        let nuques = Question(value:["quesID":"HH02", "quesContent":"Trong các mệnh đề sau, mệnh đề nào đúng?\n Khối đa diện có các mặt là những tam giác thì:"])
+//        let nuques = Question(value:["quesID":"HH01", "quesContent":"Trong các mệnh đề sau, mệnh đề nào đúng?\n Khối đa diện có các mặt là những tam giác thì:"])
 //        addQuestion(newQuestion: nuques)
+        //ADDING ANSWERS TO DATABASE
+        let nuAns1 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số đỉnh của nó bằng nhau", "correct": false])
+        let nuAns2 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số cạnh của nó bằng nhau", "correct": false])
+        let nuAns3 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số chẵn", "correct": true])
+        let nuAns4 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số lẻ", "correct": false])
+        addAnswer(A: nuAns1, B: nuAns2, C: nuAns3, D: nuAns4)
         return true
     }
 //ADDING SUBJECT
     func addSubject(newSubject: Subject){
         do {
             let realm = try Realm()
+            
             try realm.write {
                 realm.add(newSubject)
             }
@@ -46,8 +54,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func addQuestion(newQuestion: Question){
         do {
             let realm = try Realm()
+            var subs: Results<Subject>?
+            subs = realm.objects(Subject.self)
             try realm.write {
+                if newQuestion.quesID.contains("HH"){
+                    let hh = subs?.filter("subID = %@","HH")
+                    for i in hh! {
+                        i.questions.append(newQuestion)
+                        newQuestion.quesOfSub = i
+                    }
+                }
+                else if newQuestion.quesID.contains("DS"){
+                    let ds =  subs?.filter("subID = %@", "DS")
+                    for i in ds!{
+                        i.questions.append(newQuestion)
+                        newQuestion.quesOfSub = i
+                    }
+                }
+                else if newQuestion.quesID.contains("TA"){
+                    let ta =  subs?.filter("subID = %@","TA")
+                    for i in ta!{
+                        i.questions.append(newQuestion)
+                        newQuestion.quesOfSub = i
+                    }
+                }
                 realm.add(newQuestion)
+            }
+        }catch {
+            print("Error addSubject: \(error)")
+        }
+    }
+//ADDING ANSWERS
+    func addAnswer(A: Answer, B: Answer, C: Answer, D: Answer){
+        do {
+            let realm = try Realm()
+            let ansArray = [A, B, C, D]
+            var ques: Results<Question>?
+            ques = realm.objects(Question.self)
+            try realm.write {
+                for newAns in ansArray{
+                    let ansID = newAns.ansID
+                    let thisques = ques?.filter("quesID = %@", ansID)
+                    for i in thisques!{
+                        i.answers.append(newAns)
+                        newAns.ansOfQuestion = i
+                    }
+                realm.add(newAns)
+                }
             }
         }catch {
             print("Error addSubject: \(error)")
@@ -55,7 +108,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 //LOCALIZING REALM FILE
     func setDefaultRealmForUser(username: String){
-        var config = Realm.Configuration()
+        var config = Realm.Configuration(
+                            schemaVersion: 1,
+                            migrationBlock: { migration, oldSchemaVersion in
+                            if (oldSchemaVersion < 1) {
+                                // Nothing to do!
+                                // Realm will automatically detect new properties and removed properties
+                                // And will update the schema on disk automatically
+                            }
+                        })
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(username).realm")
         Realm.Configuration.defaultConfiguration = config
         print(config)
