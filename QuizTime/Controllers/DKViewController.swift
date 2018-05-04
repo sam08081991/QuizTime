@@ -16,23 +16,21 @@ class DKViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         examinees  = realm.objects(Examinee.self)
-        // Do any additional setup after loading the view.
     }
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func dkButtonPressed(_ sender: AnyObject) {
         thisNewUser.username = username.text!
         thisNewUser.password = password.text!
         thisNewUser.UID = (String)((examinees?.count)! + 1)
-        var available = examinees?.filter("username = %@", thisNewUser.username)
+        let available = examinees?.filter("username = %@", thisNewUser.username)
         //var array1 = [Examinee]()
-        var count = available?.count
+        let count = available?.count
 //        for examinee in available! {
 //            let userID = examinee.UID
 //            let userPW = examinee.password
@@ -43,18 +41,19 @@ class DKViewController: UIViewController {
 //        }
         if username.text!.isEmpty == true || password.text!.isEmpty == true {
             alertMessage(message: "Those fields must be filled")
-            username.text!.removeAll()
-            password.text!.removeAll()
+            self.username.text!.removeAll()
+            self.password.text!.removeAll()
             return
-        }else{
+        }
+        else{
             if count! > 0 {
                 alertMessage(message: "This username is unavailable")
-                username.text!.removeAll()
-                password.text!.removeAll()
+                self.username.text!.removeAll()
+                self.password.text!.removeAll()
                 return
-            }else{
+            }
+            else{
                 addUser(newUser: thisNewUser)
-                print(thisNewUser)
             }
         }
     }
@@ -75,6 +74,12 @@ class DKViewController: UIViewController {
             print("Error addUser: \(error)")
         }
     }
-    
+//PASSING DATA
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromSignupToMenu" {
+            let vc = segue.destination as! MainMenuViewController
+            vc.thisUsername = username.text!
+        }
+    }
     
 }

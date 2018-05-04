@@ -7,29 +7,25 @@
 //
 
 import UIKit
-
+import RealmSwift
 class MainMenuViewController: UIViewController {
-
+    var thisUsername : String?
+    @IBOutlet weak var currentuser: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentuser.text = thisUsername
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    @IBAction func TAButtonPressed(_ sender: Any) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func DSButtonPressed(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func HHButtonPressed(_ sender: Any) {
+    }
 }

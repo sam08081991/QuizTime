@@ -12,8 +12,6 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setDefaultRealmForUser(username: "QuizTime")
         do {
@@ -21,9 +19,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }catch{
             print("Error: \(error)")
         }
+        //ADDING SUBJECTS TO DATABASE
+//        let hinhhoc = Subject(value:["subID":"HH", "subName": "Hinh Hoc"])
+//        let daiso = Subject(value:["subID":"DS", "subName": "Dai So"])
+//        let tienganh = Subject(value:["subID":"TA", "subName": "Tieng Anh"])
+//        addSubject(newSubject: hinhhoc)
+//        addSubject(newSubject:tienganh)
+//        addSubject(newSubject:daiso)
+        //ADDING QUESTIONS TO DATABASE
+//        let nuques = Question(value:["quesID":"HH02", "quesContent":"Trong các mệnh đề sau, mệnh đề nào đúng?\n Khối đa diện có các mặt là những tam giác thì:"])
+//        addQuestion(newQuestion: nuques)
         return true
     }
-    
+//ADDING SUBJECT
+    func addSubject(newSubject: Subject){
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(newSubject)
+            }
+        }catch {
+            print("Error addSubject: \(error)")
+        }
+    }
+//ADDING QUESTION
+    func addQuestion(newQuestion: Question){
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(newQuestion)
+            }
+        }catch {
+            print("Error addSubject: \(error)")
+        }
+    }
+//LOCALIZING REALM FILE
     func setDefaultRealmForUser(username: String){
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(username).realm")
