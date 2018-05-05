@@ -20,29 +20,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }catch{
             print("Error: \(error)")
         }
-        //ADDING SUBJECTS TO DATABASE
+//        //ADDING SUBJECTS TO DATABASE
 //        let hinhhoc = Subject(value:["subID":"HH", "subName": "Hinh Hoc"])
 //        let daiso = Subject(value:["subID":"DS", "subName": "Dai So"])
 //        let tienganh = Subject(value:["subID":"TA", "subName": "Tieng Anh"])
 //        addSubject(newSubject: hinhhoc)
 //        addSubject(newSubject:tienganh)
 //        addSubject(newSubject:daiso)
-        //ADDING QUESTIONS TO DATABASE
+//        //ADDING QUESTIONS TO DATABASE
 //        let nuques = Question(value:["quesID":"HH01", "quesContent":"Trong các mệnh đề sau, mệnh đề nào đúng?\n Khối đa diện có các mặt là những tam giác thì:"])
 //        addQuestion(newQuestion: nuques)
-        //ADDING ANSWERS TO DATABASE
-        let nuAns1 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số đỉnh của nó bằng nhau", "correct": false])
-        let nuAns2 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số cạnh của nó bằng nhau", "correct": false])
-        let nuAns3 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số chẵn", "correct": true])
-        let nuAns4 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số lẻ", "correct": false])
-        addAnswer(A: nuAns1, B: nuAns2, C: nuAns3, D: nuAns4)
+//        //ADDING ANSWERS TO DATABASE
+//        let nuAns1 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số đỉnh của nó bằng nhau", "correct": false])
+//        let nuAns2 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số cạnh của nó bằng nhau", "correct": false])
+//        let nuAns3 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số chẵn", "correct": true])
+//        let nuAns4 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số lẻ", "correct": false])
+//        addAnswer(A: nuAns1, B: nuAns2, C: nuAns3, D: nuAns4)
         return true
     }
 //ADDING SUBJECT
     func addSubject(newSubject: Subject){
         do {
             let realm = try Realm()
-            
             try realm.write {
                 realm.add(newSubject)
             }

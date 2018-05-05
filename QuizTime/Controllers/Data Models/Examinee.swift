@@ -12,5 +12,6 @@ class Examinee: Object {
     @objc dynamic var UID: String = ""
     @objc dynamic var password: String = ""
     @objc dynamic var username: String = ""
-    let subjects = List<Subject>()
+    let scores = List<Score>()
+
 }

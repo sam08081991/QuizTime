@@ -39,7 +39,6 @@ class SIViewController: UIViewController {
             for i in arrayOfExaminees {
                 let name = i.username
                 let pass = i.password
-                print("name",name.components(separatedBy: ""))
                 let comparename = "\u{08}" + thisUser.username
                 //If username is match
                 if name == comparename {

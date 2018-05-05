@@ -174,7 +174,7 @@
                                 </state>
                                 <connections>
                                     <action selector="TAButtonPressed:" destination="v9o-wV-BTW" eventType="touchUpInside" id="fSu-Cs-C76"/>
-                                    <segue destination="dJb-Id-i0G" kind="show" id="R7h-of-j22"/>
+                                    <segue destination="dJb-Id-i0G" kind="show" identifier="TAtoTest" id="R7h-of-j22"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-Bs-8BE">
@@ -186,7 +186,7 @@
                                 </state>
                                 <connections>
                                     <action selector="DSButtonPressed:" destination="v9o-wV-BTW" eventType="touchUpInside" id="fh5-25-AIO"/>
-                                    <segue destination="dJb-Id-i0G" kind="show" id="xDT-sC-wQK"/>
+                                    <segue destination="dJb-Id-i0G" kind="show" identifier="DStoTest" id="xDT-sC-wQK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zib-nf-lsD">
@@ -198,7 +198,7 @@
                                 </state>
                                 <connections>
                                     <action selector="HHButtonPressed:" destination="v9o-wV-BTW" eventType="touchUpInside" id="6jh-4h-slE"/>
-                                    <segue destination="dJb-Id-i0G" kind="show" id="Q6p-uI-1rw"/>
+                                    <segue destination="dJb-Id-i0G" kind="show" identifier="HHtoTest" id="Q6p-uI-1rw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDo-eu-Qdh">
@@ -227,6 +227,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Your Score"/>
                                 <connections>
+                                    <action selector="scoreButtonPressed:" destination="v9o-wV-BTW" eventType="touchUpInside" id="MTR-gz-is6"/>
                                     <segue destination="djt-g0-PW5" kind="show" identifier="fromMenuToScore" id="Jtq-Hj-Vdn"/>
                                 </connections>
                             </button>
@@ -302,7 +303,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="v9o-wV-BTW" kind="show" id="zy2-R5-Zl7"/>
+                                    <segue destination="v9o-wV-BTW" kind="show" identifier="quit" id="zy2-R5-Zl7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C53-dd-cHz">
@@ -458,8 +459,8 @@ CA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="88A-vK-hCJ"/>
-        <segue reference="Q6p-uI-1rw"/>
-        <segue reference="CRW-mq-9dc"/>
+        <segue reference="R7h-of-j22"/>
+        <segue reference="zy2-R5-Zl7"/>
         <segue reference="X3F-Xq-y5w"/>
     </inferredMetricsTieBreakers>
 </document>
