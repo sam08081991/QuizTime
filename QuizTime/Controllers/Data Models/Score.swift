@@ -12,5 +12,5 @@ class Score: Object {
     @objc dynamic var scoreOfUser: Examinee?
     @objc dynamic var scoreOfSub: Subject?
     @objc dynamic var scoreOfTest: Int = 0
-    
+    @objc dynamic var date: Date?
 }

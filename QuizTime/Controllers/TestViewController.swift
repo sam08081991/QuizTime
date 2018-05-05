@@ -7,12 +7,19 @@
 //
 
 import UIKit
-
+import RealmSwift
 class TestViewController: UIViewController {
-
+    var thisSub: String?
+    var thisUser: String?
+    let realm = try! Realm()
+    var examinees: Results<Examinee>?
+    var subs: Results<Subject>?
+    var currentUser = Examinee()
+    var currentSubject = Subject()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var currentSub = thisSub
+        var currentUser = thisUser
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +27,6 @@ class TestViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func quitButtonPressed(_ sender: Any) {
     }
-    */
-
 }

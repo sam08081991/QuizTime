@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2016674F209711DF0003B155 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2016674E209711DF0003B155 /* ScoreViewController.swift */; };
 		2034ECF7209BF1F100DF5CEA /* SIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2034ECF6209BF1F100DF5CEA /* SIViewController.swift */; };
+		20702396209DCE8500A71F9F /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702395209DCE8500A71F9F /* ScoreTableViewCell.swift */; };
+		20702398209DF8ED00A71F9F /* AnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702397209DF8ED00A71F9F /* AnswerTableViewCell.swift */; };
+		2070239A209DF90100A71F9F /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20702399209DF90100A71F9F /* QuestionTableViewCell.swift */; };
 		20B52358207C8BA0001268CF /* Examinee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B52357207C8BA0001268CF /* Examinee.swift */; };
 		20B5235A207C8C1F001268CF /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B52359207C8C1F001268CF /* Subject.swift */; };
 		20B5235C207C8C62001268CF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B5235B207C8C62001268CF /* Question.swift */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		2016674E209711DF0003B155 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		2034ECF6209BF1F100DF5CEA /* SIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIViewController.swift; sourceTree = "<group>"; };
+		20702395209DCE8500A71F9F /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		20702397209DF8ED00A71F9F /* AnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableViewCell.swift; sourceTree = "<group>"; };
+		20702399209DF90100A71F9F /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		20B52357207C8BA0001268CF /* Examinee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examinee.swift; sourceTree = "<group>"; };
 		20B52359207C8C1F001268CF /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		20B5235B207C8C62001268CF /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -87,6 +93,9 @@
 				20C1F32D20623B5600251E29 /* AppDelegate.swift */,
 				20C1F32F20623B5600251E29 /* ViewController.swift */,
 				20B52367207DABB7001268CF /* TestViewController.swift */,
+				20702399209DF90100A71F9F /* QuestionTableViewCell.swift */,
+				20702397209DF8ED00A71F9F /* AnswerTableViewCell.swift */,
+				20702395209DCE8500A71F9F /* ScoreTableViewCell.swift */,
 				20CB8BFD2062438000F71175 /* DKViewController.swift */,
 				2034ECF6209BF1F100DF5CEA /* SIViewController.swift */,
 				20B52365207DAB44001268CF /* MainMenuViewController.swift */,
@@ -287,10 +296,13 @@
 				20B52368207DABB7001268CF /* TestViewController.swift in Sources */,
 				20C1F32E20623B5600251E29 /* AppDelegate.swift in Sources */,
 				20B5235A207C8C1F001268CF /* Subject.swift in Sources */,
+				2070239A209DF90100A71F9F /* QuestionTableViewCell.swift in Sources */,
 				20B5235C207C8C62001268CF /* Question.swift in Sources */,
 				20B52366207DAB44001268CF /* MainMenuViewController.swift in Sources */,
 				20B52358207C8BA0001268CF /* Examinee.swift in Sources */,
+				20702398209DF8ED00A71F9F /* AnswerTableViewCell.swift in Sources */,
 				20B52360207C937E001268CF /* Score.swift in Sources */,
+				20702396209DCE8500A71F9F /* ScoreTableViewCell.swift in Sources */,
 				20B5235E207C8D32001268CF /* Answer.swift in Sources */,
 				2016674F209711DF0003B155 /* ScoreViewController.swift in Sources */,
 			);

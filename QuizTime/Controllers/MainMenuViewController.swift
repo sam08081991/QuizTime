@@ -65,4 +65,16 @@ class MainMenuViewController: UIViewController {
         }
         return curSub
     }
+    //PASSING DATA
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TAtoTest" || segue.identifier == "DStoTest" || segue.identifier == "HHtoTest" {
+            let vc = segue.destination as! TestViewController
+            vc.thisSub = currentSubject.subID
+            vc.thisUser = currentUser.username
+        }
+        else if segue.identifier == "fromMenutoScore"{
+            let vc = segue.destination as! ScoreViewController
+            vc.thisUsername = currentUser.username
+        }
+    }
 }
