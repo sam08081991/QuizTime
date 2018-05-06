@@ -10,13 +10,10 @@ import UIKit
 import RealmSwift
 class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var scoreArray = [12, 14, 16]
-    var subArray = ["Hinh Hoc", "Dai So", "Tieng Anh"]
-    var dateArray = ["20-2-2018", "30-3-2018", "4-5-2018"]
-    
+    var scoreArray = [Score]()
     let realm = try! Realm()
     var examinees : Results<Examinee>?
-    let thisUser = Examinee()
+    var thisUser = Examinee()
     var thisUsername : String?
     
     override func viewDidLoad() {
@@ -24,27 +21,54 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        var currentUser = thisUsername
+        examinees = realm.objects(Examinee.self)
+        importing()
     }
-
+    //IMPORT DATA
+    func importing(){
+        let findUser = examinees?.filter("username = %@", thisUsername!)
+        for i in findUser!{
+            thisUser = i
+        }
+        for i in thisUser.scores{
+            scoreArray.append(i)
+        }
+    }
     @IBOutlet weak var tableView: UITableView!
+    //NUMBER OF ROWS
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return scoreArray.count
     }
-
+    //CONTENT OF CELL
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell") as! ScoreTableViewCell
-        cell.dateLabel.text = dateArray[indexPath.row]
-        cell.subjectLabel.text = subArray[indexPath.row]
-        cell.scoreLabel.text = String(scoreArray[indexPath.row])
+        cell.dateLabel.text = formatDate(date: scoreArray[indexPath.row].date!)
+        cell.subjectLabel.text = scoreArray[indexPath.row].scoreOfSub?.subName
+        cell.scoreLabel.text = String(scoreArray[indexPath.row].scoreOfTest)
         return cell
+    }
+   //FORMAT DATE
+    func formatDate(date: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM-dd-yyyy HH:mm"
+        return formatter.string(from:date)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func clearButtonPressed(_ sender: Any) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(thisUser.scores)
+            }
+        }catch {
+            print("Error addSubject: \(error)")
+        }
+        scoreArray.removeAll()
+        tableView.reloadData()
     }
 }
 

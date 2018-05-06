@@ -65,6 +65,16 @@ class MainMenuViewController: UIViewController {
         }
         return curSub
     }
+    @IBAction func exitButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Hey!" , message: "Are you sure you want to exit?", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action) -> Void in
+            self.navigationController?.popToRootViewController(animated: true)                    }
+        let no = UIAlertAction(title: "No", style: .default, handler: nil)
+        alert.addAction(yes)
+        alert.addAction(no)
+        present(alert, animated: true, completion: nil)
+
+    }
     //PASSING DATA
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TAtoTest" || segue.identifier == "DStoTest" || segue.identifier == "HHtoTest" {

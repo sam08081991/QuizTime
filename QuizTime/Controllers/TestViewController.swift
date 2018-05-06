@@ -31,7 +31,11 @@ class TestViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        //Remove the line between table cells
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        //Resize cell when the content is too long
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         examinees = realm.objects(Examinee.self)
         subs = realm.objects(Subject.self)
         importing()
