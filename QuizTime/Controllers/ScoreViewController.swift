@@ -23,6 +23,7 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         var currentUser = thisUsername
     }
 
@@ -40,6 +41,9 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func clearButtonPressed(_ sender: Any) {
     }
 }

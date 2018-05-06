@@ -31,19 +31,19 @@ class MainMenuViewController: UIViewController {
     @IBAction func TAButtonPressed(_ sender: Any) {
         currentSubject = currentSubject(subID: "TA")
 
-        print("User: ",currentUser)
-        print("Subject: ",currentSubject)
+//        print("User: ",currentUser)
+//        print("Subject: ",currentSubject)
 
     }
     
     @IBAction func DSButtonPressed(_ sender: Any) {
         currentSubject = currentSubject(subID: "DS")
-        print("Subject: ",currentSubject)
+//        print("Subject: ",currentSubject)
     }
     
     @IBAction func HHButtonPressed(_ sender: Any) {
         currentSubject = currentSubject(subID: "HH")
-        print("Subject: ",currentSubject)
+//        print("Subject: ",currentSubject)
     }
     
     //IMPORTING CURRENT SUBJECT

@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        addSubject(newSubject:tienganh)
 //        addSubject(newSubject:daiso)
 //        //ADDING QUESTIONS TO DATABASE
-//        let nuques = Question(value:["quesID":"HH01", "quesContent":"Trong các mệnh đề sau, mệnh đề nào đúng?\n Khối đa diện có các mặt là những tam giác thì:"])
+//        let nuques = Question(value:["quesID":"HH01", "quesContent":"Trong các mệnh đề sau, mệnh đề nào đúng? Khối đa diện có các mặt là những tam giác thì:"])
 //        addQuestion(newQuestion: nuques)
 //        //ADDING ANSWERS TO DATABASE
 //        let nuAns1 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số đỉnh của nó bằng nhau", "correct": false])
