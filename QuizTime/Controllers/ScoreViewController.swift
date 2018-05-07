@@ -20,8 +20,11 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        //Remove line between cells
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        //Retrieve all Examinee objects
         examinees = realm.objects(Examinee.self)
+        //Retrieve scores of current user
         importing()
     }
     //IMPORT DATA
@@ -53,11 +56,11 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         formatter.dateFormat = "MMMM-dd-yyyy HH:mm"
         return formatter.string(from:date)
     }
-    
+    //BACK BUTTON'S PRESSED
     @IBAction func backButtonPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+    //CLEAR YOUR SCORE BUTTON'S PRESSED
     @IBAction func clearButtonPressed(_ sender: Any) {
         do {
             let realm = try Realm()

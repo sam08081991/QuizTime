@@ -15,6 +15,7 @@ class DKViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Retrieve all Examinee objects
         examinees  = realm.objects(Examinee.self)
     }
 
@@ -29,14 +30,15 @@ class DKViewController: UIViewController {
         thisNewUser.password = password.text!
         thisNewUser.UID = (String)((examinees?.count)! + 1)
         let available = examinees?.filter("username = %@", thisNewUser.username)
-        //var array1 = [Examinee]()
         let count = available?.count
+        //If one of 2 text field is empty, ask user to do it again
         if username.text!.isEmpty == true || password.text!.isEmpty == true {
             alertMessage(message: "Those fields must be filled")
             self.username.text!.removeAll()
             self.password.text!.removeAll()
             return
         }
+        //Else check if the username is unavailable, if it's not then add the account to database
         else{
             if count! > 0 {
                 alertMessage(message: "This username is unavailable")

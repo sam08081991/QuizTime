@@ -34,13 +34,13 @@ class TestViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Remove the line between table cells
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         //Resize cell when the content is too long
-        tableView.estimatedRowHeight = 44.0
+        tableView.estimatedRowHeight = 70.00
         tableView.rowHeight = UITableViewAutomaticDimension
+        //Retrieve all Examinee objects and Subject objects
         examinees = realm.objects(Examinee.self)
         subs = realm.objects(Subject.self)
         importing()
         updateUI()
-        
     }
     
     //IMPORTING DATA
@@ -72,9 +72,13 @@ class TestViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "ansCell") as! AnswerTableViewCell
         cell.charLabel.text = charArray[indexPath.row]
         cell.ansContentLabel.text = ansArray[indexPath.row].answerContent
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+
         return cell
     }
-    
     //UI UPDATE
     func updateUI() {
         if quesNum < totalQues {
@@ -87,9 +91,11 @@ class TestViewController: UIViewController, UITableViewDelegate, UITableViewData
     func nextQuestion(){
         if quesNum < totalQues {
             quesLabel.text = quesOfSub[quesNum].quesContent
+            ansArray.removeAll()
             for i in quesOfSub[quesNum].answers{
                 ansArray.append(i)
             }
+            tableView.reloadData()
         }
         else{
             do {
@@ -115,6 +121,7 @@ class TestViewController: UIViewController, UITableViewDelegate, UITableViewData
         checkAnswer(ans: pickedAns)
         print("correct:",score)
         quesNum += 1
+        tableView.deselectRow(at: indexPath, animated: true)
         updateUI()
     }
     //CHECK ANSWER

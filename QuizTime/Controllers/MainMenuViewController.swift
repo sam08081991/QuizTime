@@ -20,6 +20,7 @@ class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentuser.text = thisUsername
+        //Retrieve all Examinee objects and Subject objects
         examinees = realm.objects(Examinee.self)
         subs = realm.objects(Subject.self)
     }
@@ -27,23 +28,17 @@ class MainMenuViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+    //TIENG ANH, DAI SO, HINH HOC BUTTONS ARE PRESSED
     @IBAction func TAButtonPressed(_ sender: Any) {
         currentSubject = currentSubject(subID: "TA")
-
-//        print("User: ",currentUser)
-//        print("Subject: ",currentSubject)
-
     }
     
     @IBAction func DSButtonPressed(_ sender: Any) {
         currentSubject = currentSubject(subID: "DS")
-//        print("Subject: ",currentSubject)
     }
     
     @IBAction func HHButtonPressed(_ sender: Any) {
         currentSubject = currentSubject(subID: "HH")
-//        print("Subject: ",currentSubject)
     }
     
     //IMPORTING CURRENT SUBJECT
@@ -65,6 +60,7 @@ class MainMenuViewController: UIViewController {
         }
         return curSub
     }
+    //EXIT BUTTON'S PRESSED
     @IBAction func exitButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Hey!" , message: "Are you sure you want to exit?", preferredStyle: .alert)
         let yes = UIAlertAction(title: "Yes", style: .default) { (action) -> Void in

@@ -27,14 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        addSubject(newSubject: hinhhoc)
 //        addSubject(newSubject:tienganh)
 //        addSubject(newSubject:daiso)
-//        //ADDING QUESTIONS TO DATABASE
-//        let nuques = Question(value:["quesID":"HH01", "quesContent":"Trong các mệnh đề sau, mệnh đề nào đúng? Khối đa diện có các mặt là những tam giác thì:"])
+        //ADDING QUESTIONS TO DATABASE
+//        let nuques = Question(value:["quesID":"HH02", "quesContent":"Trong các mệnh đề sau, mệnh đề nào sai ?"])
 //        addQuestion(newQuestion: nuques)
 //        //ADDING ANSWERS TO DATABASE
-//        let nuAns1 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số đỉnh của nó bằng nhau", "correct": false])
-//        let nuAns2 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt và số cạnh của nó bằng nhau", "correct": false])
-//        let nuAns3 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số chẵn", "correct": true])
-//        let nuAns4 = Answer(value:["ansID": "HH01", "answerContent":"Số mặt của nó là một số lẻ", "correct": false])
+//        let nuAns1 = Answer(value:["ansID": "HH02", "answerContent":"Tồn tại một hình đa diện có số cạnh bằng 7", "correct": true])
+//        let nuAns2 = Answer(value:["ansID": "HH02", "answerContent":"Tồn tại một hình đa diện có số cạnh nhỏ hơn 7", "correct": false])
+//        let nuAns3 = Answer(value:["ansID": "HH02", "answerContent":"Số cạnh của một hình đa diện luôn lớn hơn hoặc bằng 6", "correct": false])
+//        let nuAns4 = Answer(value:["ansID": "HH02", "answerContent":"Tồn tại một hình đa diện có số cạnh lớn hơn 7", "correct": false])
 //        addAnswer(A: nuAns1, B: nuAns2, C: nuAns3, D: nuAns4)
         return true
     }
